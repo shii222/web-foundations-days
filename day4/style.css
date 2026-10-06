@@ -1,0 +1,84 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #222;
+    --card-color: #ffffff;
+    --border-color: #cccccc;
+    --button-bg: #333333;
+    --button-text: #ffffff;
+}
+
+body.dark {
+    --bg-color: #1e1e1e;
+    --text-color: #f4f4f4;
+    --card-color: #2d2d2d;
+    --border-color: #555555;
+    --button-bg: #f4f4f4;
+    --button-text: #222222;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--card-color);
+}
+
+main {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--card-color);
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    resize: vertical;
+}
+
+.counters {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    cursor: pointer;
+}
+.warning {
+    color: orange;
+    font-weight: bold;
+}
+
+.danger {
+    color: red;
+    font-weight: bold;
+}
