@@ -15,6 +15,7 @@ body.dark {
     --button-bg: #f4f4f4;
     --button-text: #222222;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -73,12 +74,13 @@ button {
     color: var(--button-text);
     cursor: pointer;
 }
+
 .warning {
     color: orange;
     font-weight: bold;
 }
 
-.danger {
+.over {
     color: red;
     font-weight: bold;
 }

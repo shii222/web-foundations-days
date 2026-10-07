@@ -15,14 +15,19 @@ function updateCounts() {
   charCount.textContent = `${characters} / 200 characters`;
   wordCount.textContent = `${words} words`;
 
-  charCount.classList.remove("warning", "danger");
+  // Remove old character-limit states
+  charCount.classList.remove("warning", "over");
 
-  if (characters >= 190) {
-    charCount.classList.add("danger");
-  } else if (characters >= 160) {
+  // More than 200 characters
+  if (characters > 200) {
+    charCount.classList.add("over");
+
+  // More than 180 characters
+  } else if (characters > 180) {
     charCount.classList.add("warning");
   }
 }
+
 
 // Restore the saved draft
 const savedDraft = localStorage.getItem("draft");
@@ -31,8 +36,10 @@ if (savedDraft !== null) {
   noteText.value = savedDraft;
 }
 
+
 // Update the counters when the page loads
 updateCounts();
+
 
 // Update counters and save the draft whenever the user types
 noteText.addEventListener("input", function () {
@@ -41,25 +48,35 @@ noteText.addEventListener("input", function () {
   localStorage.setItem("draft", noteText.value);
 });
 
+
 function clearNote() {
   noteText.value = "";
   localStorage.removeItem("draft");
   updateCounts();
 }
 
+
 clearBtn.addEventListener("click", clearNote);
 
+
+// Clear the note when Escape is pressed
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     clearNote();
   }
 });
+
+
+// Restore saved theme
 const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "dark") {
   document.body.classList.add("dark");
   themeBtn.textContent = "Light Mode";
 }
+
+
+// Change between dark and light mode
 themeBtn.addEventListener("click", function () {
   document.body.classList.toggle("dark");
 
